@@ -1,0 +1,66 @@
+\documentclass[showtrims,trimframe,12pt,conselho,spreadimages]{memoir}
+
+\usepackage[largepost]{hedraoptions} %% << %%%%%%%%%%%%%%%%
+\usepackage[baruch]{hedrastyles}
+\usepackage[xetex,chicagofootnotes]{tipografia}
+\usepackage[standart,sempontinhos]{toc}
+\usepackage{hedraextra}
+\usepackage{penalidades}
+\usepackage{graficos}
+\usepackage{hedralogo}
+\usepackage{hifensextras}
+\usepackage{fichatecnica}
+\usepackage[standart]{aparatos}
+\usepackage{tabelas}
+\usepackage{versos}
+\usepackage{gitrevisioninfo}
+
+%\linespread{1.08}
+\usepackage{commands}
+
+\usepackage{setspace}
+
+\newcommand{\signature}[1]{{\par\nobreak
+      \smallskip\hfill#1\par
+  }}
+
+\renewcommand{\asterisc}{{\centering\adforn{47}\par}}
+
+\makeatletter
+\def\@xfootnote[#1]{%
+  \protected@xdef\@thefnmark{#1}%
+  \@footnotemark\@footnotetext}
+\makeatother
+
+\makeatletter
+\newenvironment{Parskip}{%
+   \par
+   \parskip=0.3\baselineskip \advance\parskip by 0pt plus 2pt
+   \parindent=\z@
+   \def\@listI{\leftmargin\leftmargini
+      \topsep\z@ \parsep\parskip \itemsep\z@}
+   \let\@listi\@listI
+   \@listi
+   \def\@listii{\leftmargin\leftmarginii
+      \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+      \topsep\z@ \parsep\parskip \itemsep\z@}
+   \def\@listiii{\leftmargin\leftmarginiii
+       \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
+       \topsep\z@ \parsep\parskip \itemsep\z@}
+   \partopsep=\z@
+}{\par}
+\makeatother
+
+\newlength\mystoreparindent
+\newenvironment{myparindent}[1]{%
+\setlength{\mystoreparindent}{\the\parindent}
+\setlength{\parindent}{#1}
+}{%
+\setlength{\parindent}{\mystoreparindent}
+}
+
+\begin{document}
+
+\include{INPUTS}
+
+\end{document}
